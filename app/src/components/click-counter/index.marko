@@ -1,0 +1,34 @@
+<script>
+    export default {
+        onInput(input) {
+            var initialCount = input.initialCount || 0;
+            this.state = { count:initialCount };
+            this.initialCount = initialCount;
+        },
+        incrementCount() {
+            this.state.count++;
+        },
+        decrementCount() {
+            this.state.count--;
+        },
+        resetCount() {
+            this.state.count = this.initialCount;
+        }
+    }
+</script>
+
+<style>
+    .count {
+        font-size:3em;
+        padding:0.5em;
+        width:3em;
+        line-height:0.5em;
+    }
+</style>
+
+<button on-click('decrementCount')>-</button>
+<div class="count">
+    ${state.count}<br/>
+    <button on-click('resetCount')>reset</button>
+</div>
+<button on-click('incrementCount')>+</button>

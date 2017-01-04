@@ -1,0 +1,21 @@
+{
+  "name": "new-marko-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "cd app && npm install"
+  },
+  "dependencies": {
+    "browser-refresh": "^1.7.0",
+    "ignore": "^3.2.0",
+    "ncp": "^2.0.0",
+    "yarn-install": "^0.2.1"
+  },
+  "devDependencies": {
+    "marko":"4.0.0-beta.7"
+  },
+  "bin": {
+    "new-marko-app": "./bin/new-marko-app",
+    "marko-app": "./bin/marko-app"
+  }
+}

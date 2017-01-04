@@ -1,0 +1,23 @@
+{
+  "name": "my-marko-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "browser-refresh index.js"
+  },
+  "dependencies": {
+    "app-module-path": "^2.1.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.16.0",
+    "babel-register": "^6.16.3",
+    "browser-refresh": "^1.7.0",
+    "browser-refresh-taglib": "^1.1.0",
+    "express": "^4.14.0",
+    "lasso": "^2.1.0",
+    "lasso-marko": "^2.1.0",
+    "marko-magic": "mlrawlings/marko-magic",
+    "require-self-ref": "^2.0.1",
+    "reverse-path": "0.0.1",
+    "routes-table": "^1.0.0",
+    "serve-static": "^1.11.1"
+  }
+}

@@ -1,0 +1,5 @@
+static
+node_modules
+*.marko.js
+.cache
+.nyc_output

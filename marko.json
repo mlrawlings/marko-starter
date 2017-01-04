@@ -1,0 +1,5 @@
+{
+    "taglibImports": [
+        "./app/package.json"
+    ]
+}
