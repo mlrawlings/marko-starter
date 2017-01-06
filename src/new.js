@@ -21,10 +21,9 @@ module.exports = function(appName) {
         private: true
     }, null, 2));
 
-    // install(['new-marko-app']);
+    install(['mlrawlings/new-marko-app']);
 
-    // var bin = require.resolve('new-marko-app/bin/marko-app');
-    var bin = path.join(__dirname, '..', 'bin', 'marko-app');
+    var bin = path.join(process.cwd(), 'node_modules', '.bin', 'marko-app');
     fork(bin, ['init']);
 }
 

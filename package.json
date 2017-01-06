@@ -3,16 +3,17 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "cd app && npm install"
+    "postinstall": "cd app && npm install && mv .npmignore .gitignore"
   },
   "dependencies": {
     "browser-refresh": "^1.7.0",
+    "cash-mv": "^0.2.0",
     "ignore": "^3.2.0",
     "ncp": "^2.0.0",
     "yarn-install": "^0.2.1"
   },
   "devDependencies": {
-    "marko":"4.0.0-beta.7"
+    "marko": "4.0.0-beta.7"
   },
   "bin": {
     "new-marko-app": "./bin/new-marko-app",
