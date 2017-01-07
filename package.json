@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "cd app && npm install && mv .npmignore .gitignore && rm -rf node_modules/marko"
+    "postinstall": "cd app && npm install --global-style && rm -rf node_modules/marko && mv .npmignore .gitignore"
   },
   "dependencies": {
     "browser-refresh": "^1.7.0",
