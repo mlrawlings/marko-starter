@@ -1,6 +1,6 @@
 var path = require('path');
 var routesTable = require('routes-table');
-var pagesDir = path.join(process.cwd(), './src/pages');
+var pagesDir = path.join(process.cwd(), './pages');
 
 var routeOptions = {
     onRoute:(module, directory, route) => {

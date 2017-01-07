@@ -1,8 +1,6 @@
 [
-    "/index.js",
-    "/build.js",
-    "/src/index.js",
-    "/src/routes.js",
-    "/config/index.js",
+    "/server",
+    "/config",
+    "/scripts",
     "/package.json"
 ]

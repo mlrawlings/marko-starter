@@ -7,7 +7,7 @@ var ig = ignore();
 
 addScripts();
 copyFiles();
-install(['marko-js/marko']);
+install(['marko@latest-beta']);
 
 function copyFiles() {
     ig.add(require('../ignore.json'));

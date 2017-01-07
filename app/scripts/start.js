@@ -4,11 +4,11 @@ var isDev = NODE_ENV == null ||
 
 if(isDev) {
     require('browser-refresh').start({
-        script: require.resolve('../app/index.js'),
+        script: require.resolve('../server'),
         delay: 3000,
         execArgs: [],
         args: []
     });
 } else {
-    require('../app/index.js');
+    require('../server');
 }

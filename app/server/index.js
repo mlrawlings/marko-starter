@@ -1,7 +1,9 @@
+require('../config');
+
 var path = require('path');
 var routes = require('./routes');
 var reversePath = require('reverse-path');
-var staticDir = path.join(process.cwd(), './static');
+var staticDir = path.join(process.cwd(), './.cache/static');
 var express = require('express');
 var serve = require('serve-static');
 var app = express();

@@ -1,5 +1,6 @@
 var path = require('path');
 var isProduction = (process.env.NODE_ENV === 'production');
+var projectDir = process.cwd();
 
 /*
 Allow requiring paths relative to the root of the project:
@@ -10,7 +11,7 @@ require('require-self-ref');
 /*
 Allow directories under lib to be used as if they were in node_modules
 */
-var libDir = path.join(process.cwd(), 'lib');
+var libDir = path.join(projectDir, 'lib');
 var appModulePath = require('app-module-path');
 appModulePath.addPath(libDir);
 
@@ -34,10 +35,8 @@ require('lasso/browser-refresh').enable('*.marko *.css *.less *.styl *.scss *.sa
 /*
 ES Modules
 */
-var srcDir = path.join(process.cwd(), 'src');
-var srcRegex = new RegExp('^'+srcDir);
 require('babel-register')({
-    only: srcRegex,
+    ignore: /node_modules/,
     plugins: [
         require('babel-plugin-transform-es2015-modules-commonjs'),
     ],
@@ -52,7 +51,7 @@ require('lasso').configure({
     ],
 
     // Directory where generated JS and CSS bundles are written
-    outputDir: path.join(process.cwd(), './static'),
+    outputDir: path.join(process.cwd(), './.cache/static'),
 
     // URL prefix for static assets
     urlPrefix: '/static',

@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "browser-refresh index.js"
+    "start": "./scripts/start.js",
+    "build": "./scripts/build.js"
   },
   "dependencies": {
     "app-module-path": "^2.1.0",
