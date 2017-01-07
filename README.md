@@ -25,7 +25,8 @@ npm start
 
 Adding a page to your application simply requires adding a new directory under the `src/pages` directory.  Inside this directory, you can put either an `index.marko` template or an `index.js` file that exports a `handler` method.
 
-> **Example scenario:**
+<details>
+<summary>Example scenario</summary>
 >
 > Given a directory structure like this:
 >
@@ -37,12 +38,13 @@ Adding a page to your application simply requires adding a new directory under t
 > ```
 >
 > Hitting `/my-page` will render `index.marko`.
-
+</details>
 ### Template entry
 
 If using an `index.marko` entry template for the route, the data passed to the template will be any values in the url query string and url parameters (see custom routes and params).  
 
-> **Example scenario:**
+<details>
+<summary>Example scenario</summary>
 >
 > Given a route:
 > ```
@@ -69,6 +71,7 @@ If using an `index.marko` entry template for the route, the data passed to the t
 >     <li>27</li>
 > </ul>
 > ```
+</details>
 
 ### Handler entry
 
@@ -100,7 +103,8 @@ export const handler = (req, res) => {
 
 To add a component, simply create a new directory under the `src/components` directory.  The directory name will be used as the component name.
 
-> **Example scenario:**
+<details>
+<summary>Example scenario</summary>
 >
 > Given a directory structure like this:
 >
@@ -115,12 +119,14 @@ To add a component, simply create a new directory under the `src/components` dir
 > ```html
 > <my-component foo=123/>
 > ```
+</details>
 
 ### Page specific components
 
 You can create a `components` directory under a page directory and those components will only be available to that page.
 
-> **Example scenario:**
+<details>
+<summary>Example scenario</summary>
 >
 > Given a directory structure like this:
 >
@@ -135,6 +141,7 @@ You can create a `components` directory under a page directory and those compone
 > ```
 >
 > You will only be able to use your component in from the `my-page/index.marko` template or other components defined under `my-page/components`.
+</details>
 
 ### Subcomponents
 
