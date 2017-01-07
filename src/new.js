@@ -5,7 +5,7 @@ var fork = require('child_process').fork;
 
 module.exports = function(appName) {
     if(!appName) {
-        throw new Error('You must specify an app name: `create-marko-app my-app`');
+        throw new Error('You must specify an app name: `new-marko-app my-app`');
     }
 
     if(!isValidAppName(appName)) {
