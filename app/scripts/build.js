@@ -67,9 +67,8 @@ var build = () => fs.emptyDir(staticDir).then(() => {
 
         return request(url).then(html => {
             if(baseUrl) {
-                html = html.replace(/src="\//g, 'src="');
-                html = html.replace(/href="\//g, 'href="');
-                html = html.replace('<head>', `<head><base href="${baseUrl}"/>`);
+                html = html.replace(/src="\//g, `src="${baseUrl}/`);
+                html = html.replace(/href="\//g, `href="${baseUrl}/`);
             }
             return fs.outputFile(file, html)
         });

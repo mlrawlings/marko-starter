@@ -39,6 +39,7 @@ Adding a page to your application simply requires adding a new directory under t
 >
 > Hitting `/my-page` will render `index.marko`.
 </details>
+
 ### Template entry
 
 If using an `index.marko` entry template for the route, the data passed to the template will be any values in the url query string and url parameters (see custom routes and params).  
@@ -179,7 +180,28 @@ export const handler = (req, res) => {
 
 `params` may be programmatically generated and may also be a `Promise`.
 
-## Ejecting
+### Publishing to GitHub Pages (or other remote repo)
+
+Simply add a `static-repo` entry to your `package.json` which is a git url.  When running `npm run build`, a new commit will be created and pushed to the remote repository.
+
+```js
+{
+  ...
+  "static-repo": "git@github.com:user/repo.git#branch"
+}
+```
+
+If you're publishing a project site at a subdirectory, you'll also want to set a `baseurl` entry which will be prepended to any root-relative urls.
+
+```js
+{
+  ...
+  "static-repo": "git@github.com:user/repo.git#branch",
+  "baseurl": "/repo"
+}
+```
+
+## Ejecting (advanced)
 
 If you need to do something that is not supported by `new-marko-app`, you can run:
 
