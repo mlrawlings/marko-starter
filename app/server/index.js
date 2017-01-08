@@ -1,14 +1,15 @@
-require('../config');
-
+var config = require('../config');
 var path = require('path');
 var routes = require('./routes');
 var reversePath = require('reverse-path');
-var staticDir = path.join(process.cwd(), './.cache/static');
+var assetsDir = path.join(process.cwd(), './.cache/assets');
 var express = require('express');
 var serve = require('serve-static');
 var app = express();
 
-app.use('/static', serve(staticDir));
+app.use('/assets', serve(assetsDir, {
+    maxAge: config.isProd ? 365*24*60*60 : 0
+}));
 
 routes.get().then(routes => {
     if(!routes.length) {

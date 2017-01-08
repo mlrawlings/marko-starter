@@ -1,8 +1,6 @@
-var NODE_ENV = process.env.NODE_ENV;
-var isDev = NODE_ENV == null ||
-            NODE_ENV.toLowerCase() === 'development'.slice(0, NODE_ENV.length);
+var config = require('../config');
 
-if(isDev) {
+if(config.isDev) {
     require('browser-refresh').start({
         script: require.resolve('../server'),
         delay: 3000,

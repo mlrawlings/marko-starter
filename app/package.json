@@ -20,5 +20,11 @@
     "reverse-path": "0.0.1",
     "routes-table": "^1.0.0",
     "serve-static": "^1.11.1"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "fs-promise": "^1.0.0",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
   }
 }

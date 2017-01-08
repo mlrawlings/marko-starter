@@ -1,6 +1,16 @@
 var path = require('path');
-var isProduction = (process.env.NODE_ENV === 'production');
 var projectDir = process.cwd();
+
+/*
+Environment
+*/
+var NODE_ENV = process.env.NODE_ENV;
+var isDev = NODE_ENV == null ||
+            NODE_ENV.toLowerCase() === 'development'.slice(0, NODE_ENV.length);
+var isProd = !isDev;
+
+exports.isDev = isDev;
+exports.isProd = isProd;
 
 /*
 Allow requiring paths relative to the root of the project:
@@ -51,17 +61,17 @@ require('lasso').configure({
     ],
 
     // Directory where generated JS and CSS bundles are written
-    outputDir: path.join(process.cwd(), './.cache/static'),
+    outputDir: path.join(process.cwd(), './.cache/assets'),
 
     // URL prefix for static assets
-    urlPrefix: '/static',
+    urlPrefix: '/assets',
 
     // Only bundle up JS and CSS files in production builds
-    bundlingEnabled: isProduction,
+    bundlingEnabled: isProd,
 
     // Only minify JS and CSS files in production builds
-    minify: isProduction,
+    minify: isProd,
 
     // Only fingerprint JS and CSS files in production builds
-    fingerprintsEnabled: isProduction
+    fingerprintsEnabled: isProd
 });
