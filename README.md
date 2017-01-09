@@ -102,51 +102,119 @@ export const handler = (req, res) => {
 
 ## Adding components
 
-To add a component, simply create a new directory under the `src/components` directory.  The directory name will be used as the component name.
+To add a component, simply create a new directory under the `src/components` directory.  The directory name will be used as the component name.  Inside the directory you should put an `index.marko` file.
+
+```
+⤷ components/
+  ⤷ my-component/
+     ⤷ index.marko
+```
+
+Given the above structure, you will be able to use `<my-component>` in any other component template or page template.
+
+### Client-side behavior
+
+Adding client-side behavior to a component is as simple as defining methods in your `index.marko` in a script tag and exporting them within the template, or defining a `component.js` file next to your `index.marko` file that exports the methods.
 
 <details>
-<summary>Example scenario</summary>
->
-> Given a directory structure like this:
->
-> ```
-> ⤷ src/
->    ⤷ components/
->       ⤷ my-component/
->          ⤷ index.marko
-> ```
->
-> You will be able to use your component in any other component template or page template:
-> ```html
-> <my-component foo=123/>
-> ```
+<summary>Example single file component</summary>
+**index.marko**
+```html
+<script>
+    module.exports = {
+        onInput(input) {
+            this.state = {
+                count: input.count
+            }
+            this.initialCount = input.count
+        },
+        incrementCount() {
+            this.state.count++
+        },
+        resetCount() {
+            this.state.count = this.initialCount
+        }
+    }
+</script>
+
+<div>${state.count}</div>
+<button on-click('incrementCount')>+</button>
+<button on-click('resetCount')>reset</button>
+```
 </details>
+
+<details>
+<summary>Example split component</summary>
+**index.marko**
+```html
+<div>${state.count}</div>
+<button on-click('incrementCount')>+</button>
+<button on-click('resetCount')>reset</button>
+```
+**component.js**
+```js
+module.exports = {
+    onInput(input) {
+        this.state = {
+            count: input.count
+        }
+        this.initialCount = input.count
+    },
+    incrementCount() {
+        this.state.count++
+    },
+    resetCount() {
+        this.state.count = this.initialCount
+    }
+}
+```
+</details>
+
+### Styles
+
+To add styles to your components, either add a top-level `<style>` tag in your `index.marko` file or define a `style.css` file next to your `index.marko` file.
 
 ### Page specific components
 
 You can create a `components` directory under a page directory and those components will only be available to that page.
 
 <details>
-<summary>Example scenario</summary>
+<summary>Example page specific component</summary>
 >
 > Given a directory structure like this:
 >
 > ```
-> ⤷ src/
->    ⤷ pages/
->       ⤷ my-page/
->          ⤷ components/
->             ⤷ my-component/
->                ⤷ index.marko
->          ⤷ index.marko
+> ⤷ pages/
+>    ⤷ my-page/
+>       ⤷ components/
+>          ⤷ my-page-component/
+>             ⤷ index.marko
+>       ⤷ index.marko
 > ```
 >
-> You will only be able to use your component in from the `my-page/index.marko` template or other components defined under `my-page/components`.
+> You will only be able to use `<my-page-component>` from the `my-page/index.marko` template or other components defined under `my-page/components`.
 </details>
 
 ### Subcomponents
 
 You can also create a `components` directory under another component and those components will only be available to the parent component.
+
+<details>
+<summary>Example subcomponent</summary>
+>
+> Given a directory structure like this:
+>
+> ```
+> ⤷ components/
+>    ⤷ my-component/
+>       ⤷ components/
+>          ⤷ my-subcomponent/
+>             ⤷ index.marko
+>       ⤷ index.marko
+> ```
+>
+> You will only be able to use `<my-subcomponent>` from the `my-component/index.marko` template or other subcomponents defined under `my-component/components`.
+</details>
 
 ## Building a static site
 
