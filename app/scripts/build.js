@@ -82,7 +82,7 @@ var build = () => fs.emptyDir(staticDir).then(() => {
         var parts = staticRepo.split('#');
         var branch = parts[1] || 'master';
         try {
-            exec(`cd ${staticDir} && git add . && git commit -m "updated static site"`);
+            exec(`cd ${staticDir} && git add . --all && git commit -m "updated static site"`);
             exec(`cd ${staticDir} && git push origin ${branch}`);
             console.log('Static site successfully built and pushed to remote repository.');
         } catch(e) {
