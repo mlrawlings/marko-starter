@@ -1,6 +1,18 @@
+# Static build directory
 static
+
+# Dependencies
 node_modules
+
+# Compiled templates
 *.marko.js
+
+# Cache used by lasso, etc.
 .cache
+
+# Test coverage output
 .nyc_output
-npm-debug.log
+
+# Log files
+*.log
+npm-debug.log*
