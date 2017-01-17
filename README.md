@@ -221,22 +221,16 @@ The build tool will hit all your page routes and generate the resulting html fil
 
 ### Dynamic routes
 
-If you have routes that have custom parameters, the build tool needs to know which parameters can be passed.  You can export a `params` array from the `index.js` file for a page.
+If you have routes that have custom parameters, the build tool needs to know which parameters can be passed.  You can export a `params` array from the `route.js` file for a page.
 
 ```js
-import template from './template.marko';
+exports.path = '/people/:name';
 
-export const route = '/people/:name';
-
-export const params = [
+exports.params = [
     { name:'reyna' },
     { name:'dakota' },
     { name:'jordan' },
 ];
-
-export const handler = (req, res) => {
-    res.marko(template, { name:req.params.name });
-}
 ```
 
 `params` may be programmatically generated and may also be a `Promise`.
