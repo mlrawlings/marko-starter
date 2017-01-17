@@ -1,9 +1,9 @@
 # new-marko-app
 
-To get started, install the command line tool globally.  This will be used to start a new application.
+To get started, install the command line tool globally.  This will be used to start a new application.  Since this generator is still under development, for now, we'll install it from github:
 
 ```
-npm install new-marko-app --global
+npm install mlrawlings/new-marko-app --global
 ```
 
 ## Creating a new app
