@@ -23,7 +23,7 @@ npm start
 
 ## Adding pages
 
-Adding a page to your application simply requires adding a new directory under the `src/pages` directory.  Inside this directory, you can put either an `index.marko` template or an `index.js` file that exports a `handler` method.
+Adding a page to your application simply requires adding a new directory under the `src/routes` directory.  Inside this directory, you can put either an `index.marko` template and/or a `route.js` file that exports a `handler` method.
 
 <details>
 <summary>Example scenario</summary>
@@ -32,7 +32,7 @@ Adding a page to your application simply requires adding a new directory under t
 >
 > ```
 > ⤷ src/
->    ⤷ pages/
+>    ⤷ routes/
 >       ⤷ my-page/
 >          ⤷ index.marko
 > ```
@@ -40,9 +40,15 @@ Adding a page to your application simply requires adding a new directory under t
 > Hitting `/my-page` will render `index.marko`.
 </details>
 
-### Template entry
+### Custom routes and params
 
-If using an `index.marko` entry template for the route, the data passed to the template will be any values in the url query string and url parameters (see custom routes and params).  
+By default, the route for a page is determined by the page's directory name, but you can also define a custom route for your page.  This route can include custom express-style url parameters.  You do this by exporting a `path` from a `route.js` file in your page's directory:
+
+```js
+exports.path = '/people/:name';
+```
+
+If using an `index.marko` template for the route, the data passed to the template will be any values in the url query string and url parameters.  
 
 <details>
 <summary>Example scenario</summary>
@@ -74,31 +80,18 @@ If using an `index.marko` entry template for the route, the data passed to the t
 > ```
 </details>
 
-### Handler entry
+### Custom handler entry
 
-If you need more control over the data passed to the template, you can define a custom `handler` function in your `index.js` file.
+If you need more control over the data passed to the template or don't even want to render a template, you can define a custom `handler` function in your `route.js` file:
 
 ```js
-import template from './template.marko';
+const template = require('./index.marko');
 
-export const handler = (req, res) => {
+exports.handler = (req, res) => {
     res.marko(template, {});
 }
 ```
 
-### Custom routes and params
-
-By default, the route for a page is determined by the page's directory name, but you can also define a custom route for your page.  This route can include custom express-style url parameters.
-
-```js
-import template from './template.marko';
-
-export const route = '/people/:name';
-
-export const handler = (req, res) => {
-    res.marko(template, { name:req.params.name });
-}
-```
 
 ## Adding components
 
