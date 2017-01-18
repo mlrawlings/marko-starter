@@ -17,6 +17,7 @@ var del = require('del');
 
 // Clean compiled templates because we assume up to date in production
 exec('markoc . --clean');
+exec('rf -rf .cache');
 
 // Start the app
 var app = fork(path.join(__dirname, '../server'), [], {
