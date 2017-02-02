@@ -5,11 +5,11 @@ var fork = require('child_process').fork;
 
 module.exports = function(appName) {
     if(!appName) {
-        throw new Error('You must specify an app name: `new-marko-app my-app`');
+        throw new Error('You must specify an app name: `marko-starter my-app`');
     }
 
     if(!isValidAppName(appName)) {
-        throw new Error('Invaid app name: '+appName);
+        throw new Error('Invaid app name: ' + appName);
     }
 
     fs.mkdirSync(appName);
@@ -21,11 +21,11 @@ module.exports = function(appName) {
         private: true
     }, null, 2));
 
-    install(['mlrawlings/new-marko-app']);
+    install(['mlrawlings/marko-starter']);
 
     var bin = path.join(process.cwd(), 'node_modules', '.bin', 'marko-app');
     fork(bin, ['init']);
-}
+};
 
 function isValidAppName(name) {
     return !/\/|\\/.test(name);

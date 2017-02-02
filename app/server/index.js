@@ -9,7 +9,7 @@ var serve = require('serve-static');
 var app = express();
 
 app.use('/assets', serve(assetsDir, {
-    maxAge: config.isProd ? 365*24*60*60 : 0
+    maxAge: config.isProd ? 365 * 24 * 60 * 60 : 0
 }));
 
 routes.get().then(routes => {
@@ -25,7 +25,10 @@ routes.get().then(routes => {
     app.listen(8080, () => {
         if(process.send) {
             var path = reversePath(routes[0].path, routes[0].params[0]);
-            process.send({ event:'online', url:'http://localhost:8080'+path });
+            process.send({
+                event: 'online',
+                url: 'http://localhost:8080' + path
+            });
         }
     });
-}).catch(e => { console.error(e) });
+}).catch(e => { console.error(e); });

@@ -21,7 +21,7 @@ exec('rm -rf .cache');
 
 // Start the app
 var app = fork(path.join(__dirname, '../server'), [], {
-    env:{ NODE_ENV:'production' }
+    env: { NODE_ENV: 'production' }
 });
 
 app.on('message', message => {
@@ -46,14 +46,14 @@ var build = () => fs.emptyDir(staticDir).then(() => {
         }
     }
 }).then(() => {
-    return routes.get()
+    return routes.get();
 }).then(routes => {
     var paths = [];
 
     routes.forEach(route => {
         if(route.params.length) {
             route.params.forEach(param => {
-                paths.push(reversePath(route.path, param))
+                paths.push(reversePath(route.path, param));
             });
         } else {
             paths.push(route.path);
@@ -64,14 +64,14 @@ var build = () => fs.emptyDir(staticDir).then(() => {
 }).then(paths => {
     var pages = paths.map(path => {
         var url = localServer + path;
-        var file = staticDir + path + (/\.w+$/.test(path) ? '' : '/index.html' )
+        var file = staticDir + path + (/\.w+$/.test(path) ? '' : '/index.html');
 
         return request(url).then(html => {
             if(baseUrl) {
                 html = html.replace(/src="\//g, `src="${baseUrl}/`);
                 html = html.replace(/href="\//g, `href="${baseUrl}/`);
             }
-            return fs.outputFile(file, html)
+            return fs.outputFile(file, html);
         });
     });
 

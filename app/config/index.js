@@ -1,5 +1,4 @@
 var path = require('path');
-var projectDir = process.cwd();
 
 /*
 Environment
@@ -25,12 +24,10 @@ Allow requiring *.marko files
 require('marko/node-require').install();
 require('marko/compiler/config').meta = true;
 
-
 /*
 Enable res.marko
 */
 require('marko/express');
-
 
 /*
 Browser Refresh
