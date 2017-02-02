@@ -1,0 +1,14 @@
+extends: semistandard
+plugins:
+  - standard
+  - promise
+rules:
+  indent:
+    - error
+    - 4
+  keyword-spacing:
+    - off
+  no-multiple-empty-lines:
+    - off
+  space-before-function-paren:
+    - off

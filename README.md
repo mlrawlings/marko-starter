@@ -1,17 +1,17 @@
-# new-marko-app
+# marko-starter
 
 To get started, install the command line tool globally.  This will be used to start a new application.  Since this generator is still under development, for now, we'll install it from github:
 
 ```
-npm install mlrawlings/new-marko-app --global
+npm install mlrawlings/marko-starter --global
 ```
 
 ## Creating a new app
 
-First, call `new-marko-app` and pass the name of the application that you want to create.
+First, call `marko-starter` and pass the name of the application that you want to create.
 
 ```
-new-marko-app test-app
+marko-starter test-app
 ```
 
 This creates a new directory and bootstraps your application inside of it.  To start the app, change into the app directory and run `npm start`.
@@ -258,12 +258,12 @@ If you're publishing a project site at a subdirectory, you'll also want to set a
 
 ## Ejecting (advanced)
 
-If you need to do something that is not supported by `new-marko-app`, you can run:
+If you need to do something that is not supported by `marko-starter`, you can run:
 
 ```
 npm run eject
 ```
 
-This will uninstall `new-marko-app` and install a bunch of other modules, and add some additional files to your project which you can then fully customize.
+This will uninstall `marko-starter` and install a bunch of other modules, and add some additional files to your project which you can then fully customize.
 
 **Beware:** This is a one way operation, if you want to undo it, you better be using `git` or some other form of version control.

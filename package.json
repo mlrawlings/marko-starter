@@ -1,6 +1,6 @@
 {
-  "name": "new-marko-app",
-  "version": "1.0.0",
+  "name": "marko-starter",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "postinstall": "cd app && npm install --global-style && rm -rf node_modules/marko && mv .npmignore .gitignore"
@@ -14,10 +14,20 @@
     "yarn-install": "^0.2.1"
   },
   "devDependencies": {
+    "eslint": "^3.14.1",
+    "eslint-config-semistandard": "^7.0.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-mocha": "^4.8.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
     "marko": "4.0.0-beta.7"
   },
   "bin": {
-    "new-marko-app": "./bin/new-marko-app",
-    "marko-app": "./bin/marko-app"
-  }
+    "marko-starter": "./bin/marko-starter"
+  },
+  "description": "marko-starter makes developing, running and building marko apps easier",
+  "main": "index.js",
+  "repository": "git@github.com:philidem/marko-starter.git",
+  "author": "Phillip Gates-Idem <phillip.idem@gmail.com>",
+  "license": "MIT"
 }

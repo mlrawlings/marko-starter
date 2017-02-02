@@ -1,2 +1,0 @@
-#!/usr/bin/env node
-require('../src/new')(process.argv[2], process.argv.slice(3));

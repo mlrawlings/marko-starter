@@ -3,7 +3,7 @@ var routesTable = require('routes-table');
 var routesDir = path.join(process.cwd(), './routes');
 
 var routeOptions = {
-    onRoute:(route) => {
+    onRoute: (route) => {
         if(route.handler) return route;
 
         var template = route.template;
@@ -35,6 +35,6 @@ var routeOptions = {
 
         return route;
     }
-}
+};
 
 exports.get = () => routesTable.build(routesDir, routeOptions);

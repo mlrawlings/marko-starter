@@ -18,10 +18,10 @@ function copyFiles() {
     var options = {
         filter: filepath => {
             if(filepath === source) return true;
-            var relative = filepath.replace(source+path.sep, '');
+            var relative = filepath.replace(source + path.sep, '');
             return !ig.ignores(relative);
         }
-    }
+    };
 
     ncp(source, target, options, (err) => {
         if(err) return console.error(err);
